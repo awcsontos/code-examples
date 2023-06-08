@@ -141,8 +141,6 @@ None
 # In[19]:
 
 
-# SOLUTION
-
 def get_gaussian_filter(n, sigma=1):
     assert(n % 2 == 1)
     h = (n + 1)//2
@@ -213,13 +211,6 @@ None
 
 
 # In[20]:
-
-
-# SOLUTION: Answers to C, D, E
-# Using the alternate "trace" definition of the scoring
-# function does a good job at detecting *all* edges, which 
-# makes it a poor corner detector. I have included code 
-# that computes and plots this function below:
 
 def get_harris_score_trace(image, weights):
     A, B, C = get_harris_components(image, weights)
@@ -294,10 +285,7 @@ plt.imshow(circ_img)
 None
 
 
-# In[5]:
 
-
-# SOLUTION
 
 def get_LoG_filter(kernel_size, sigma):
     assert(kernel_size % 2 == 1)
@@ -414,10 +402,6 @@ plt.imshow(circ_img)
 None
 
 
-# In[7]:
-
-
-# SOLUTION
 
 import matplotlib.pyplot as plt
 
@@ -576,21 +560,6 @@ def transform_image(image, transformation_matrix):
 # In[10]:
 
 
-# SOLUTION
-
-## P2.3S Image Warping
-
-# **NOTE**: There are a number of reasons 
-# that it is difficult to determine the correct 
-# direction of rotation. As such, I have given 
-# full credit to both positive and negative rotation 
-# for each response. In fact, since it was not 100% clear 
-# when I was talking about the forward and the negative 
-# transformation, I have given full credit to both 
-# solutions for all transformations.
-# 
-# My solution for `transform_image` is as follows:
-
 def transform_image(image, transformation_matrix):
     # Notice that because matrices are stored "rows, columns",
     # we need to flip the "shape" coordinates so that the transformation
@@ -620,12 +589,6 @@ def transform_image(image, transformation_matrix):
             transformed_image[jj, ii] = image_fn(new_x, new_y)
             
     return transformed_image
-
-
-# In[11]:
-
-
-## SOLUTION
 
 image_base = load_image("light_cubes_sm.png")[::2, ::2, 0]
 plt.figure()
@@ -679,8 +642,6 @@ None
 
 # In[12]:
 
-
-## SOLUTION
 
 # H matrix a
 plt.subplot(2, 1, 1)
@@ -852,8 +813,6 @@ def compute_feature_matches(fsa, fsb):
 
 # In[15]:
 
-
-# SOLUTION: (relies on my functions from above) 
 def get_corners(image, threshold=0.01):
     weights = get_gaussian_filter(201, sigma=5)
     f = get_harris_score(image, weights)
@@ -892,8 +851,6 @@ for (fn, title) in [(compute_descriptor_match, "Match"),
 
 # In[17]:
 
-
-## SOLUTION: Data Generation
 import pickle
 
 img_base = load_image('light_cubes_sm.png')[:, :, 0]
